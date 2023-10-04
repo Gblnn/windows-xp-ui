@@ -1,0 +1,1528 @@
+[gd_scene load_steps=85 format=2]
+
+[ext_resource path="res://Scenes/Computer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Command_prompt.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Recycle_bin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Styles/Bluebar.tres" type="StyleBox" id=4]
+[ext_resource path="res://Scripts/Control.gd" type="Script" id=5]
+[ext_resource path="res://Fonts/segoeui.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Fonts/bahnschrift.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Sounds/Shutdown_sound.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/Startup.mp3" type="AudioStream" id=9]
+[ext_resource path="res://icons/Logo.png" type="Texture" id=10]
+[ext_resource path="res://icons/Shutdown_icon.png" type="Texture" id=11]
+[ext_resource path="res://icons/recycle bin.png" type="Texture" id=12]
+[ext_resource path="res://icons/Separator.png" type="Texture" id=13]
+[ext_resource path="res://icons/Profile_icon.png" type="Texture" id=14]
+[ext_resource path="res://Sounds/logout_sound.mp3" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/login_sound.mp3" type="AudioStream" id=16]
+[ext_resource path="res://icons/My computer.png" type="Texture" id=17]
+[ext_resource path="res://icons/Chess_icon.jpg" type="Texture" id=18]
+[ext_resource path="res://img/Login_screen.png" type="Texture" id=19]
+[ext_resource path="res://img/XP.jpg" type="Texture" id=20]
+[ext_resource path="res://icons/windows.png" type="Texture" id=21]
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 65
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 34
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0.0588235 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.509804, 0.509804, 0.509804, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id=9]
+resource_name = "Bar"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bar1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -34, 3 ), Vector2( 210, 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bar2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23, 3 ), Vector2( 221, 3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Bar3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -12, 3 ), Vector2( 232, 3 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bar1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 4, 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bar2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 15, 3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Bar3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 26, 3 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Bar"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bar/Bar3:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.1, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 28, 3 ), Vector2( 190, 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bar/Bar2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -0.1, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 17, 3 ), Vector2( 179, 3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Bar/Bar1:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( -0.1, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 6, 3 ), Vector2( 168, 3 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "New Anim"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Microsoft:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Windows:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("xp:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Bar:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Logo:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Bar/Bar1:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Bar/Bar2:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Bar/Bar3:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Bar/Bar_Overlay:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Microsoft:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Windows:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("xp:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Bar:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Logo:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Bar/Bar1:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Bar/Bar2:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Bar/Bar3:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Bar/Bar3:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 28, 3 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Bar/Bar2:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 17, 3 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Bar/Bar1:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 6, 3 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Bar/Bar_Overlay:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=74]
+resource_name = "Fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=75]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=76]
+resource_name = "New Anim"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Separator:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Begin:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Profile:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ShutDown:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Profile/ChessIcon:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=77]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Separator:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Begin:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Profile:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Profile:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ShutDown:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Profile/ChessIcon:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=17]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 22
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0.152941, 0.2, 0.564706, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=35]
+bg_color = Color( 0, 0.188235, 0.611765, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=19]
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=29]
+bg_color = Color( 0.117647, 0.14902, 0.482353, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 0.109804, 0.133333, 0.407843, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=30]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Animation" id=36]
+resource_name = "New Anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shutting Down:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shutting Down:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=78]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=68]
+bg_color = Color( 0.823529, 0.823529, 0.823529, 0.392157 )
+
+[sub_resource type="StyleBoxFlat" id=71]
+bg_color = Color( 0.160784, 0.278431, 0.639216, 0.847059 )
+
+[sub_resource type="StyleBoxFlat" id=72]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=69]
+size = 12
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=79]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="GDScript" id=80]
+script/source = "extends Panel
+
+func _on_Close_pressed():
+	set_visible(false)
+	pass # Replace with function body.
+"
+
+[sub_resource type="DynamicFont" id=54]
+size = 10
+use_filter = true
+extra_spacing_char = 2
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=60]
+size = 13
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=61]
+
+[sub_resource type="StyleBoxFlat" id=65]
+
+[sub_resource type="StyleBoxFlat" id=62]
+bg_color = Color( 0.6, 0.6, 0.6, 0.403922 )
+
+[sub_resource type="StyleBoxFlat" id=50]
+bg_color = Color( 0.184314, 0.329412, 0.670588, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+
+[sub_resource type="StyleBoxFlat" id=43]
+bg_color = Color( 0.184314, 0.329412, 0.670588, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+
+[sub_resource type="DynamicFont" id=47]
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=53]
+bg_color = Color( 0.133333, 0.227451, 0.45098, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=64]
+bg_color = Color( 0.133333, 0.227451, 0.45098, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=48]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=49]
+bg_color = Color( 0.184314, 0.329412, 0.670588, 1 )
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="DynamicFont" id=44]
+size = 14
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=45]
+bg_color = Color( 0.133333, 0.227451, 0.45098, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=58]
+bg_color = Color( 0.133333, 0.227451, 0.45098, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=46]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=59]
+bg_color = Color( 0.133333, 0.227451, 0.45098, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=51]
+size = 14
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=52]
+content_margin_left = 20.0
+bg_color = Color( 0.352941, 0.458824, 0.698039, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFont" id=24]
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.337255, 0.576471, 0.337255, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=34]
+bg_color = Color( 0.254902, 0.439216, 0.27451, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0.266667, 0.501961, 0.294118, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=55]
+bg_color = Color( 0.301961, 0.47451, 0.796078, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=63]
+bg_color = Color( 0.223529, 0.372549, 0.65098, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.223529, 0.372549, 0.65098, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.219608, 0.458824, 0.65098, 1 )
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="DynamicFont" id=39]
+size = 14
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=56]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=57]
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="DynamicFont" id=38]
+size = 22
+use_filter = true
+font_data = ExtResource( 7 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="Startup_time" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Boot_time" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="BootSplash" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Logo" type="TextureRect" parent="BootSplash"]
+modulate = Color( 1, 0.858824, 0.745098, 1 )
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -39.0
+margin_top = -143.0
+margin_right = 82.0
+margin_bottom = -36.0
+texture = ExtResource( 10 )
+
+[node name="Microsoft" type="Label" parent="BootSplash"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -134.0
+margin_top = -46.0
+margin_right = -42.0
+margin_bottom = -23.0
+custom_fonts/font = SubResource( 3 )
+text = "Microsoft"
+
+[node name="Windows" type="Label" parent="BootSplash"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -132.5
+margin_top = -26.0
+margin_right = 132.5
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 4 )
+text = "Windows"
+
+[node name="xp" type="Label" parent="BootSplash"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 130.5
+margin_top = -30.5
+margin_right = 187.5
+margin_bottom = 36.5
+custom_colors/font_color = Color( 1, 0.482353, 0.345098, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "xp"
+
+[node name="Professional" type="Label" parent="BootSplash"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -129.0
+margin_top = 32.0
+margin_right = 52.0
+margin_bottom = 127.0
+custom_fonts/font = SubResource( 22 )
+text = "Professional
+"
+
+[node name="Bar" type="ProgressBar" parent="BootSplash"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -104.0
+margin_top = 180.0
+margin_right = 104.0
+margin_bottom = 195.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+percent_visible = false
+
+[node name="Bar1" type="ColorRect" parent="BootSplash/Bar"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -98.0
+margin_top = -12.0
+margin_right = -89.0
+margin_bottom = -3.0
+color = Color( 0.258824, 0.360784, 0.768627, 1 )
+
+[node name="Bar2" type="ColorRect" parent="BootSplash/Bar"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -87.0
+margin_top = -12.0
+margin_right = -78.0
+margin_bottom = -3.0
+color = Color( 0.258824, 0.360784, 0.768627, 1 )
+
+[node name="Bar3" type="ColorRect" parent="BootSplash/Bar"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -76.0
+margin_top = -12.0
+margin_right = -67.0
+margin_bottom = -3.0
+color = Color( 0.258824, 0.360784, 0.768627, 1 )
+
+[node name="Blank1" type="ColorRect" parent="BootSplash/Bar"]
+margin_left = -39.0
+margin_bottom = 22.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Blank2" type="ColorRect" parent="BootSplash/Bar"]
+margin_left = 208.0
+margin_right = 248.0
+margin_bottom = 22.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Bar" type="AnimationPlayer" parent="BootSplash/Bar"]
+anims/Bar = SubResource( 9 )
+anims/RESET = SubResource( 10 )
+
+[node name="Bar_Overlay" type="ProgressBar" parent="BootSplash/Bar"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -104.0
+margin_top = -15.0
+margin_right = 104.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+percent_visible = false
+
+[node name="Fade" type="AnimationPlayer" parent="BootSplash"]
+anims/Bar = SubResource( 8 )
+"anims/New Anim" = SubResource( 6 )
+anims/RESET = SubResource( 7 )
+
+[node name="Login_time" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Login" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 19 )
+expand = true
+
+[node name="Fade" type="AnimationPlayer" parent="Login"]
+anims/Fade = SubResource( 74 )
+anims/RESET = SubResource( 75 )
+
+[node name="Component_fade" type="AnimationPlayer" parent="Login"]
+"anims/New Anim" = SubResource( 76 )
+anims/RESET = SubResource( 77 )
+
+[node name="Separator" type="TextureRect" parent="Login"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.5
+margin_top = -173.01
+margin_right = 10.5
+margin_bottom = 267.99
+texture = ExtResource( 13 )
+expand = true
+
+[node name="Login_Load_time" type="Timer" parent="Login"]
+one_shot = true
+
+[node name="Startup" type="AudioStreamPlayer" parent="Login"]
+stream = ExtResource( 9 )
+
+[node name="Begin" type="Label" parent="Login"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -262.0
+margin_top = -7.0
+margin_right = -49.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 17 )
+text = "To begin, click on your profile"
+
+[node name="Profile" type="TextureButton" parent="Login"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 43.0
+margin_top = -37.0
+margin_right = 113.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 14 )
+
+[node name="Profile_name" type="Button" parent="Login/Profile"]
+margin_left = -9.0
+margin_top = -7.0
+margin_right = 316.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 18 )
+custom_styles/hover = SubResource( 31 )
+custom_styles/pressed = SubResource( 35 )
+custom_styles/normal = SubResource( 32 )
+text = "Administrator"
+
+[node name="ChessIcon" type="Sprite" parent="Login/Profile"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 34.5, 34.5 )
+scale = Vector2( 0.075, 0.075 )
+texture = ExtResource( 18 )
+
+[node name="Log_timer" type="Timer" parent="Login/Profile"]
+one_shot = true
+
+[node name="ShutDown" type="Button" parent="Login"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 26.0
+margin_top = -63.0
+margin_right = 194.0
+margin_bottom = -19.0
+custom_fonts/font = SubResource( 19 )
+custom_styles/hover = SubResource( 29 )
+custom_styles/pressed = SubResource( 33 )
+custom_styles/normal = SubResource( 30 )
+text = "Shut Down"
+
+[node name="Button" type="TextureButton" parent="Login/ShutDown"]
+margin_left = 11.0
+margin_top = 11.0
+margin_right = 31.0
+margin_bottom = 31.0
+texture_normal = ExtResource( 11 )
+expand = true
+
+[node name="Shutting_down" type="AnimationPlayer" parent="Login/ShutDown"]
+root_node = NodePath("../../..")
+"anims/New Anim" = SubResource( 36 )
+anims/RESET = SubResource( 37 )
+
+[node name="Shut_down_timer" type="Timer" parent="Login/ShutDown"]
+wait_time = 8.0
+one_shot = true
+
+[node name="Shutdown" type="AudioStreamPlayer" parent="Login/ShutDown"]
+stream = ExtResource( 8 )
+
+[node name="Desktop" type="TextureButton" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+action_mode = 0
+texture_normal = ExtResource( 20 )
+expand = true
+
+[node name="Icons" type="Panel" parent="Desktop"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 78 )
+
+[node name="Recycle bin" type="Button" parent="Desktop/Icons"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 107.0
+margin_bottom = 107.0
+custom_constants/hseparation = 2
+custom_styles/hover = SubResource( 68 )
+custom_styles/pressed = SubResource( 71 )
+custom_styles/normal = SubResource( 72 )
+
+[node name="TextureRect" type="TextureRect" parent="Desktop/Icons/Recycle bin"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = -32.0
+margin_right = 25.0
+margin_bottom = 18.0
+texture = ExtResource( 12 )
+expand = true
+
+[node name="Label" type="Label" parent="Desktop/Icons/Recycle bin"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -30.5
+margin_top = -20.0
+margin_right = 30.5
+margin_bottom = -7.0
+custom_fonts/font = SubResource( 69 )
+text = "Recycle bin"
+align = 1
+valign = 1
+
+[node name="Computer" type="Button" parent="Desktop/Icons"]
+margin_left = 10.0
+margin_top = 118.0
+margin_right = 105.0
+margin_bottom = 208.0
+custom_constants/hseparation = 2
+custom_styles/hover = SubResource( 68 )
+custom_styles/pressed = SubResource( 71 )
+custom_styles/normal = SubResource( 72 )
+
+[node name="TextureRect" type="TextureRect" parent="Desktop/Icons/Computer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = -32.0
+margin_right = 25.0
+margin_bottom = 18.0
+texture = ExtResource( 17 )
+expand = true
+
+[node name="Label" type="Label" parent="Desktop/Icons/Computer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -35.5
+margin_top = -20.0
+margin_right = 35.5
+margin_bottom = -7.0
+custom_fonts/font = SubResource( 69 )
+text = "My Computer"
+align = 1
+valign = 1
+
+[node name="My_Computer" parent="Desktop" instance=ExtResource( 1 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -462.5
+margin_top = -260.5
+margin_right = 462.5
+margin_bottom = 260.5
+
+[node name="Recycle_bin" parent="Desktop" instance=ExtResource( 3 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -462.5
+margin_top = -260.5
+margin_right = 462.5
+margin_bottom = 260.5
+custom_styles/panel = SubResource( 79 )
+script = SubResource( 80 )
+
+[node name="Command_prompt" parent="Desktop" instance=ExtResource( 2 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -380.5
+margin_top = -214.0
+margin_right = 380.5
+margin_bottom = 214.0
+
+[node name="Taskbar" type="ColorRect" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -37.0
+color = Color( 0.172549, 0.294118, 0.713726, 1 )
+
+[node name="Start_menu" type="ColorRect" parent="Taskbar"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = -552.0
+margin_right = 436.0
+margin_bottom = -68.0
+
+[node name="App_list" type="ColorRect" parent="Taskbar/Start_menu"]
+anchor_bottom = 1.0
+margin_top = 24.0
+margin_right = 185.0
+margin_bottom = -28.0
+color = Color( 0.847059, 0.847059, 0.847059, 1 )
+
+[node name="Label" type="Label" parent="Taskbar/Start_menu/App_list"]
+visible = false
+margin_left = 17.0
+margin_top = 15.0
+margin_right = 73.0
+margin_bottom = 29.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 54 )
+text = "ALL APPS"
+
+[node name="Settings" type="Button" parent="Taskbar/Start_menu/App_list"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -92.5
+margin_top = -88.0
+margin_right = 92.5
+margin_bottom = -49.0
+custom_fonts/font = SubResource( 60 )
+custom_styles/hover = SubResource( 61 )
+custom_styles/pressed = SubResource( 65 )
+custom_styles/normal = SubResource( 62 )
+text = "All Settings    >"
+
+[node name="Header" type="Button" parent="Taskbar/Start_menu"]
+margin_top = -26.0
+margin_right = 431.0
+margin_bottom = 26.0
+custom_styles/hover = SubResource( 50 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = SubResource( 43 )
+
+[node name="Profile" type="Button" parent="Taskbar/Start_menu/Header"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 195.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 47 )
+custom_styles/hover = SubResource( 53 )
+custom_styles/pressed = SubResource( 64 )
+custom_styles/normal = SubResource( 48 )
+text = "Administrator"
+
+[node name="Icon" type="TextureRect" parent="Taskbar/Start_menu/Header"]
+margin_left = 15.0
+margin_top = 12.0
+margin_right = 41.0
+margin_bottom = 38.0
+texture = ExtResource( 18 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Taskbar/Start_menu/Header"]
+margin_left = 295.0
+margin_top = 5.0
+margin_right = 335.0
+margin_bottom = 45.0
+
+[node name="Footer" type="Button" parent="Taskbar/Start_menu"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -215.0
+margin_top = -77.0
+margin_right = 215.0
+margin_bottom = 23.0
+custom_styles/hover = SubResource( 49 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 4 )
+
+[node name="Shutdown" type="Button" parent="Taskbar/Start_menu/Footer"]
+margin_left = 241.0
+margin_top = 56.0
+margin_right = 425.0
+margin_bottom = 95.0
+custom_fonts/font = SubResource( 44 )
+custom_styles/hover = SubResource( 45 )
+custom_styles/pressed = SubResource( 58 )
+custom_styles/normal = SubResource( 46 )
+text = "Shut Down"
+expand_icon = true
+
+[node name="Logout" type="Button" parent="Taskbar/Start_menu/Footer"]
+margin_left = 5.0
+margin_top = 55.0
+margin_right = 202.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 44 )
+custom_styles/hover = SubResource( 45 )
+custom_styles/pressed = SubResource( 59 )
+custom_styles/normal = SubResource( 46 )
+text = "Log Out"
+expand_icon = true
+
+[node name="Logout" type="AudioStreamPlayer" parent="Taskbar/Start_menu/Footer/Logout"]
+stream = ExtResource( 15 )
+
+[node name="Login" type="AudioStreamPlayer" parent="Taskbar/Start_menu/Footer/Logout"]
+stream = ExtResource( 16 )
+
+[node name="LineEdit" type="LineEdit" parent="Taskbar/Start_menu/Footer"]
+margin_left = 10.0
+margin_top = 12.0
+margin_right = 419.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 51 )
+custom_styles/normal = SubResource( 52 )
+placeholder_text = "Search Windows"
+caret_blink = true
+
+[node name="Taskbar_Timer" type="Timer" parent="Taskbar"]
+wait_time = 0.25
+one_shot = true
+
+[node name="Start" type="Button" parent="Taskbar"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_top = -37.0
+margin_right = 114.0
+custom_fonts/font = SubResource( 24 )
+custom_styles/hover = SubResource( 25 )
+custom_styles/pressed = SubResource( 34 )
+custom_styles/normal = SubResource( 23 )
+toggle_mode = true
+text = "Start"
+
+[node name="TextureRect" type="TextureRect" parent="Taskbar/Start"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 18.0
+margin_top = -10.5
+margin_right = 38.0
+margin_bottom = 9.5
+rect_rotation = -4.7
+texture = ExtResource( 21 )
+expand = true
+
+[node name="Notification_bar" type="Button" parent="Taskbar"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -166.0
+margin_top = -37.0
+custom_styles/hover = SubResource( 55 )
+custom_styles/pressed = SubResource( 63 )
+custom_styles/normal = SubResource( 26 )
+
+[node name="Time" type="Label" parent="Taskbar/Notification_bar"]
+margin_left = 75.0
+margin_top = 11.0
+margin_right = 131.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 39 )
+text = "7:48 PM"
+
+[node name="ProgressBar" type="ProgressBar" parent="Taskbar/Notification_bar"]
+margin_left = 39.0
+margin_top = 14.0
+margin_right = 55.0
+margin_bottom = 22.0
+custom_styles/fg = SubResource( 56 )
+custom_styles/bg = SubResource( 57 )
+value = 75.0
+percent_visible = false
+
+[node name="Shutting Down" type="Label" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -70.5
+margin_top = -11.5
+margin_right = 70.5
+margin_bottom = 11.5
+custom_fonts/font = SubResource( 38 )
+text = "Shutting down"
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[connection signal="timeout" from="Startup_time" to="." method="_on_Startup_time_timeout"]
+[connection signal="timeout" from="Boot_time" to="." method="_on_Boot_time_timeout"]
+[connection signal="timeout" from="Login_time" to="." method="_on_Login_time_timeout"]
+[connection signal="timeout" from="Login/Login_Load_time" to="." method="_on_Login_Load_time_timeout"]
+[connection signal="pressed" from="Login/Profile" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Login/Profile/Profile_name" to="." method="_on_Profile_name_pressed"]
+[connection signal="timeout" from="Login/Profile/Log_timer" to="." method="_on_Log_timer_timeout"]
+[connection signal="pressed" from="Login/ShutDown" to="." method="_on_ShutDown_pressed"]
+[connection signal="animation_finished" from="Login/ShutDown/Shutting_down" to="." method="_on_Shutting_down_animation_finished"]
+[connection signal="timeout" from="Login/ShutDown/Shut_down_timer" to="." method="_on_Shut_down_timer_timeout"]
+[connection signal="pressed" from="Desktop" to="." method="_on_Desktop_pressed"]
+[connection signal="pressed" from="Desktop/Icons/Recycle bin" to="." method="_on_Recycle_bin_pressed"]
+[connection signal="pressed" from="Desktop/Icons/Computer" to="." method="_on_Computer_pressed"]
+[connection signal="pressed" from="Taskbar/Start_menu/Footer/Shutdown" to="." method="_on_Shutdown_pressed"]
+[connection signal="pressed" from="Taskbar/Start_menu/Footer/Logout" to="." method="_on_Logout_pressed"]
+[connection signal="text_entered" from="Taskbar/Start_menu/Footer/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="timeout" from="Taskbar/Taskbar_Timer" to="." method="_on_Taskbar_Timer_timeout"]
+[connection signal="toggled" from="Taskbar/Start" to="." method="_on_Start_toggled"]
