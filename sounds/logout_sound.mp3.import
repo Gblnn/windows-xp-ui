@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/logout_sound.mp3-fc1992595fb6ffb04b07e322391b6167.mp3str"
+
+[deps]
+
+source_file="res://sounds/logout_sound.mp3"
+dest_files=[ "res://.import/logout_sound.mp3-fc1992595fb6ffb04b07e322391b6167.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
